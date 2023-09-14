@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6fa0f992063cc574387fb690370cb0e0
+guid: ee286a0a3a8aa1643b5b5819c3906027
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Loveship Sprite-Sheet_0
+      name: Loveship Sprite-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 72
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e9f47ade8686dc4691a73d5f6814fd6
-      internalID: -1492871266
+      spriteID: 950bb3f982387254b957fec440592589
+      internalID: 1245185838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Loveship Sprite-Sheet_1
+      name: Loveship Sprite-Sheet 1_1
       rect:
         serializedVersion: 2
         x: 552
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d294429205693342a996b1d0e0d6e95
-      internalID: -614169487
+      spriteID: 62392b9b07aa0714ca020fad91d8c641
+      internalID: 585328315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Loveship Sprite-Sheet_2
+      name: Loveship Sprite-Sheet 1_2
       rect:
         serializedVersion: 2
         x: 1032
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38cabfdd96fe9d64a912fa3b7a1bd5f0
-      internalID: 1207248347
+      spriteID: ef75ea15d7ef5c34aaac6ae74f75eef2
+      internalID: 1352729605
       vertices: []
       indices: 
       edges: []
@@ -178,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Loveship Sprite-Sheet_0: -1492871266
-      Loveship Sprite-Sheet_1: -614169487
-      Loveship Sprite-Sheet_2: 1207248347
+      Loveship Sprite-Sheet 1_0: 1245185838
+      Loveship Sprite-Sheet 1_1: 585328315
+      Loveship Sprite-Sheet 1_2: 1352729605
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
