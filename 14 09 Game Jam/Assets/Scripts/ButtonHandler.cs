@@ -19,6 +19,7 @@ public class ButtonHandler : MonoBehaviour
     private Slider trackedSlider;
     private LevelMap map;
     private bool waitingForInput;
+    private bool sliderUp;
 
     public enum ButtonType
     {
@@ -60,6 +61,10 @@ public class ButtonHandler : MonoBehaviour
         {
             trackedButton.onClick.AddListener(OnInteractableClick);
         }
+        if (trackedSlider != null)
+        {
+            trackedSlider.onValueChanged.AddListener(OnInteractableSlide);
+        }
     }
 
     private void Update()
@@ -99,5 +104,25 @@ public class ButtonHandler : MonoBehaviour
             indicatorMat.color = oldColor;
         }
         waitingForInput = false;
+    }
+
+    public void OnInteractableSlide(float sliderVal)
+    {
+        Image indicatorMat = indicator.GetComponent<Image>();
+        if (sliderUp && sliderVal <= 10)
+        {
+            map.OnSuccessfulEvent();
+            indicatorMat.color = oldColor;
+            waitingForInput = false;
+            sliderUp = false;
+        }
+
+        if (!sliderUp && sliderVal >= 90)
+        {
+            map.OnSuccessfulEvent();
+            indicatorMat.color = oldColor;
+            waitingForInput = false;
+            sliderUp = true;
+        }
     }
 }
