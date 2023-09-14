@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Inspectable]
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject interactableObject;
@@ -16,6 +17,8 @@ public class ButtonHandler : MonoBehaviour
 
     private Button trackedButton;
     private Slider trackedSlider;
+    private LevelMap map;
+    private bool waitingForInput;
 
     public enum ButtonType
     {
@@ -30,6 +33,7 @@ public class ButtonHandler : MonoBehaviour
 
     private void Start()
     {
+        map = FindObjectOfType<LevelMap>();
         switch (type)
         {
             case ButtonType.button:
@@ -61,7 +65,7 @@ public class ButtonHandler : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= timerComp)
+        if (timer >= timerComp && waitingForInput)
         {
             StopIndicateInput();
         }
@@ -71,20 +75,29 @@ public class ButtonHandler : MonoBehaviour
     public void IndicateInput(float timeUntilInput)
     {
         timer = 0.0f;
-        Material indicatorMat = indicator.GetComponent<Material>();
+        Image indicatorMat = indicator.GetComponent<Image>();
         oldColor = indicatorMat.color;
         indicatorMat.color = Color.red;
         timerComp = timeUntilInput;
+        waitingForInput = true;
     }
 
     public void StopIndicateInput()
     {
-        Material indicatorMat = indicator.GetComponent<Material>();
+        Image indicatorMat = indicator.GetComponent<Image>();
         indicatorMat.color = oldColor;
+        map.OnFailedEvent();
+        waitingForInput = false;
     }
 
     public void OnInteractableClick()
     {
-
+        Image indicatorMat = indicator.GetComponent<Image>();
+        if (0 < timer && timer < timerComp)
+        {
+            map.OnSuccessfulEvent();
+            indicatorMat.color = oldColor;
+        }
+        waitingForInput = false;
     }
 }
