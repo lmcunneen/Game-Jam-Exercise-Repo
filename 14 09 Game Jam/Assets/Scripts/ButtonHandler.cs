@@ -14,12 +14,15 @@ public class ButtonHandler : MonoBehaviour
     private Color oldColor;
     private float timer = 0;
     private float timerComp;
+    private float offsetTimer = 0;
+    private float offsetComp;
 
     private Button trackedButton;
     private Slider trackedSlider;
     private LevelMap map;
     private bool waitingForInput;
     private bool sliderUp;
+    private bool offsetIndicator = false;
 
     public enum ButtonType
     {
@@ -70,21 +73,45 @@ public class ButtonHandler : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= timerComp && waitingForInput)
+        offsetTimer += Time.deltaTime;
+
+        if (timer >= timerComp && offsetIndicator)
+        {
+            StopIndicateInputNoFail();
+        }
+        if (offsetTimer >= offsetComp && !waitingForInput && offsetIndicator)
+        {
+            EnableInputWait();
+        }
+
+        if (timer >= timerComp && waitingForInput && !offsetIndicator)
         {
             StopIndicateInput();
         }
 
     }
 
-    public void IndicateInput(float timeUntilInput)
+    public void IndicateInput(float timeUntilInput, float timeOffset, bool offsetIndication = false)
     {
         timer = 0.0f;
+        offsetTimer = 0.0f - timeUntilInput;
         Image indicatorMat = indicator.GetComponent<Image>();
         oldColor = indicatorMat.color;
         indicatorMat.color = Color.red;
         timerComp = timeUntilInput;
-        waitingForInput = true;
+        offsetComp = timeOffset;
+        offsetIndicator = offsetIndication;
+
+        if (!offsetIndication)
+        {
+            waitingForInput = true;
+        }
+    }
+
+    public void StopIndicateInputNoFail()
+    {
+        Image indicatorMat = indicator.GetComponent<Image>();
+        indicatorMat.color = oldColor;
     }
 
     public void StopIndicateInput()
@@ -95,10 +122,17 @@ public class ButtonHandler : MonoBehaviour
         waitingForInput = false;
     }
 
+    public void EnableInputWait()
+    {
+        timer = 0.0f;
+        waitingForInput = true;
+        offsetIndicator = false;
+    }
+
     public void OnInteractableClick()
     {
         Image indicatorMat = indicator.GetComponent<Image>();
-        if (0 < timer && timer < timerComp)
+        if (0 < timer && timer < timerComp && waitingForInput)
         {
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
@@ -109,7 +143,7 @@ public class ButtonHandler : MonoBehaviour
     public void OnInteractableSlide(float sliderVal)
     {
         Image indicatorMat = indicator.GetComponent<Image>();
-        if (sliderUp && sliderVal <= 10)
+        if (sliderUp && sliderVal <= 10 && waitingForInput)
         {
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
@@ -117,7 +151,7 @@ public class ButtonHandler : MonoBehaviour
             sliderUp = false;
         }
 
-        if (!sliderUp && sliderVal >= 90)
+        if (!sliderUp && sliderVal >= 90 && waitingForInput)
         {
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;

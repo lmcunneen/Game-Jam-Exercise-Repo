@@ -248,17 +248,21 @@ MonoBehaviour:
     button: {fileID: 1886496389}
     executionTime: 5
     indicationTime: 2
+    indicationOffset: 2
   - name: ButtonPress2
     button: {fileID: 1886496389}
-    executionTime: 10
-    indicationTime: 2
-  - name: SliderSlide1
-    button: {fileID: 1787494763}
     executionTime: 15
     indicationTime: 2
+    indicationOffset: 0
+  - name: SliderSlide1
+    button: {fileID: 1787494763}
+    executionTime: 20
+    indicationTime: 2
+    indicationOffset: 0
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
+  offsetIndication: 0
 --- !u!1 &137221886
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 734.49976, y: 188.50006}
+  m_AnchoredPosition: {x: 734.5, y: 163.7}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693229477
