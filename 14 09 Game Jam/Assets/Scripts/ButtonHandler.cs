@@ -19,6 +19,7 @@ public class ButtonHandler : MonoBehaviour
 
     private Button trackedButton;
     private Slider trackedSlider;
+    private Slider indicationSlider;
     private LevelMap map;
     private bool waitingForInput;
     private bool sliderUp;
@@ -54,6 +55,7 @@ public class ButtonHandler : MonoBehaviour
                 break;
             case ButtonType.greenButton:
                 trackedButton = interactableObject.GetComponent<Button>();
+                indicationSlider = indicator.GetComponent<Slider>();
                 break;
             default:
                 Debug.LogError("THE BUTTON FUCKING BROKEN");
@@ -75,6 +77,12 @@ public class ButtonHandler : MonoBehaviour
         timer += Time.deltaTime;
         offsetTimer += Time.deltaTime;
 
+        if (type == ButtonType.greenButton)
+        {
+            if (offsetComp == 0) indicationSlider.value = 0;
+            else indicationSlider.value = offsetTimer / offsetComp;
+        }
+
         if (timer >= timerComp && offsetIndicator)
         {
             StopIndicateInputNoFail();
@@ -95,9 +103,14 @@ public class ButtonHandler : MonoBehaviour
     {
         timer = 0.0f;
         offsetTimer = 0.0f - timeUntilInput;
-        Image indicatorMat = indicator.GetComponent<Image>();
-        oldColor = indicatorMat.color;
-        indicatorMat.color = Color.red;
+
+        if (!(type == ButtonType.greenButton))
+        {
+            Image indicatorMat = indicator.GetComponent<Image>();
+            oldColor = indicatorMat.color;
+            indicatorMat.color = Color.red;
+        }
+        
         timerComp = timeUntilInput;
         offsetComp = timeOffset;
         offsetIndicator = offsetIndication;
@@ -110,14 +123,21 @@ public class ButtonHandler : MonoBehaviour
 
     public void StopIndicateInputNoFail()
     {
-        Image indicatorMat = indicator.GetComponent<Image>();
-        indicatorMat.color = oldColor;
+        if (!(type == ButtonType.greenButton))
+        {
+            Image indicatorMat = indicator.GetComponent<Image>();
+            indicatorMat.color = oldColor;
+        }
     }
 
     public void StopIndicateInput()
     {
-        Image indicatorMat = indicator.GetComponent<Image>();
-        indicatorMat.color = oldColor;
+        if (!(type == ButtonType.greenButton))
+        {
+            Image indicatorMat = indicator.GetComponent<Image>();
+            indicatorMat.color = oldColor;
+        }
+
         map.OnFailedEvent();
         waitingForInput = false;
     }
@@ -132,12 +152,18 @@ public class ButtonHandler : MonoBehaviour
     public void OnInteractableClick()
     {
         Image indicatorMat = indicator.GetComponent<Image>();
-        if (0 < timer && timer < timerComp && waitingForInput)
+        if (0 < timer && timer < timerComp && waitingForInput && !(type == ButtonType.greenButton))
         {
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
         }
         waitingForInput = false;
+
+        if (type == ButtonType.greenButton)
+        {
+            offsetComp = 0;
+            indicationSlider.value = 0;
+        }
     }
 
     public void OnInteractableSlide(float sliderVal)
