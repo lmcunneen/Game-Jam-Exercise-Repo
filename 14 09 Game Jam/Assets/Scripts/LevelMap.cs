@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelMap : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class LevelMap : MonoBehaviour
     public float timeElapsed;
     public int currentEvent = 0;
     public bool mapFinished = false;
-    public bool offsetIndication;
+
+    public int life = 3;
+    public GameObject[] lives;
 
     private void Update()
     {
@@ -38,12 +41,25 @@ public class LevelMap : MonoBehaviour
 
     public void OnFailedEvent()
     {
-        Debug.Log("YOU FUCKED UP DAWG");
+        lives[life].gameObject.SetActive(false);
+        life--;
+        Debug.Log("YOU FUCKED UP DAWG! You have this much life left: " + life);
+
+
+        if (life == 0)
+        {
+            SceneManager.LoadScene("Death");
+        }
     }
 
     public void OnSuccessfulEvent()
     {
         Debug.Log("YOU DID IT!!");
+
+        if (mapFinished)
+        {
+            SceneManager.LoadScene("End Custscene");
+        }
     }
 }
 
