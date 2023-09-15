@@ -41,7 +41,7 @@ public class LevelMap : MonoBehaviour
 
     public void OnFailedEvent()
     {
-        lives[life].gameObject.SetActive(false);
+        lives[life - 1].gameObject.SetActive(false);
         life--;
         Debug.Log("YOU FUCKED UP DAWG! You have this much life left: " + life);
 
