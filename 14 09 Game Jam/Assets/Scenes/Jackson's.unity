@@ -428,6 +428,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 392992372}
   indicator: {fileID: 1524175993}
+  buttonPressAudio: {fileID: 0}
+  indicatorAudio: {fileID: 0}
+  audioSource: {fileID: 0}
   type: 4
 --- !u!114 &392992375
 MonoBehaviour:
@@ -815,7 +818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 580, y: 137}
+  m_AnchoredPosition: {x: 992, y: 408}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693229477
@@ -1453,6 +1456,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 1787494761}
   indicator: {fileID: 693229475}
+  buttonPressAudio: {fileID: 0}
+  indicatorAudio: {fileID: 0}
+  audioSource: {fileID: 0}
   type: 1
 --- !u!114 &1787494764
 MonoBehaviour:
@@ -1636,6 +1642,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 1886496387}
   indicator: {fileID: 1864484735}
+  buttonPressAudio: {fileID: 0}
+  indicatorAudio: {fileID: 0}
+  audioSource: {fileID: 0}
   type: 0
 --- !u!114 &1886496390
 MonoBehaviour:

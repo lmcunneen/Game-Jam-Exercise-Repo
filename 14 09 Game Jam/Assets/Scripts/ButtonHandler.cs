@@ -119,14 +119,7 @@ public class ButtonHandler : MonoBehaviour
             flashCount++;
             yield return new WaitForSeconds(0.42857142857f / 2);
         }
-        
 
-        float waitTime = 0.0f;
-        while (waitTime < 0.12857142857f / 2)
-        {
-            waitTime += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
         Debug.Log("WaitingForInput...");
         waitingForInput = true;
 
@@ -187,7 +180,7 @@ public class ButtonHandler : MonoBehaviour
         waitingForInput = true;
 
         float buttonPressTime = 0.0f;
-        while (buttonPressTime < 0.4 / 2)
+        while (buttonPressTime < 0.6)
         {
             buttonPressTime += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
