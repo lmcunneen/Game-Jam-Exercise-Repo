@@ -3170,18 +3170,15 @@ MonoBehaviour:
   - name: BIG36
     button: {fileID: 1595503265}
     executionTime: 35.7
-  - name: BIG36
+  - name: HIGH40
     button: {fileID: 1955342782}
-    executionTime: 35.7
-  - name: BIG36
+    executionTime: 39.7
+  - name: MID41
     button: {fileID: 1390125808}
-    executionTime: 35.7
-  - name: BIG36
+    executionTime: 40.7
+  - name: LOW42
     button: {fileID: 2022585073}
-    executionTime: 35.7
-  - name: BIG36
-    button: {fileID: 1390125808}
-    executionTime: 35.7
+    executionTime: 41.7
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
