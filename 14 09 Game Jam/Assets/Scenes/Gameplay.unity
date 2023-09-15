@@ -1843,6 +1843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 772652878}
+  terminalButton: {fileID: 1749170962}
 --- !u!1 &851178767
 GameObject:
   m_ObjectHideFlags: 0
