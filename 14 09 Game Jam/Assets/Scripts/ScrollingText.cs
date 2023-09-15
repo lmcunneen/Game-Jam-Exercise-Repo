@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class ScrollingText : MonoBehaviour
 {
     private string message1 = "[[ [ 1 ] NEW MESSAGE(S) ]]";
-    private string message2 = "My love,\n          \nShould this message reach you, I am near.              \nEngage ship’s Generative Pairing System.\n          \nI miss you.          - H ";
+    private string message2 = "My love,\n          \nShould this message reach you, I am near.              \nEngage ship’s Generative Pairing System.\n          \nI miss you.       \n- H ";
     private string message3 = "The GPS…       \nIt was damaged navigating those meteors.       \nI’ll have to pilot it manually.       \nIt will be most perilous, but I must try.       \nI’m on my way, my love!";
-    private string message4 = "Now, let’s see…       \nIf I remember correctly, this thing is all about the Beat.       \nFeel the Beat, and the GPS will feel it too.";
+    private string message4 = "Now, let’s see…       \nIf I remember correctly,       \nthis thing is all about the Beat.       \nFeel the Beat, and the GPS will feel it too.";
     private string message5 = "The manual should help, it’s been a while.       \nTime to fire this thing up.";
     private char[] textArray;
 

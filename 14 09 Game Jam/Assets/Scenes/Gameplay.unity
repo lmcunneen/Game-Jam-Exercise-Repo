@@ -1794,9 +1794,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "MANUAL\n\n[ACTIONS] are done to the Beat.\r\nLarge Button \u2013 3, 2,
-    1, [PRESS]\r\nSmall Button \u2013 [PRESS] when meter full\r\nLarge Lever \u2013
-    Flash; [CHANGE]\r\nSimon System \u2013 [REPEAT]\n\n"
+  m_Text: "MANUAL\n\n[ACTIONS] are done to the Beat.\r\n\nLarge Button \u2013 3,
+    2, 1, [PRESS]\r\nSmall Button \u2013 [PRESS] when meter full\r\nLarge Lever \u2013
+    Flash; [CHANGE]\r"
 --- !u!222 &745872826
 CanvasRenderer:
   m_ObjectHideFlags: 0
