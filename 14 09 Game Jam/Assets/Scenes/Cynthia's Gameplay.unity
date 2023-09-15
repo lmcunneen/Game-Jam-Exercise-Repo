@@ -3164,21 +3164,33 @@ MonoBehaviour:
   - name: LEVER28
     button: {fileID: 592685462}
     executionTime: 27.7
-  - name: LEVER32
-    button: {fileID: 592685462}
-    executionTime: 31.7
   - name: BIG36
     button: {fileID: 1595503265}
     executionTime: 35.7
-  - name: HIGH40
-    button: {fileID: 1955342782}
+  - name: LEVER36
+    button: {fileID: 592685462}
     executionTime: 39.7
-  - name: MID41
-    button: {fileID: 1390125808}
-    executionTime: 40.7
-  - name: LOW42
-    button: {fileID: 2022585073}
-    executionTime: 41.7
+  - name: SLIDER44
+    button: {fileID: 1717589334}
+    executionTime: 43.7
+  - name: SLIDER48
+    button: {fileID: 1717589334}
+    executionTime: 47.7
+  - name: LEVER52
+    button: {fileID: 592685462}
+    executionTime: 51.7
+  - name: BIG56
+    button: {fileID: 1595503265}
+    executionTime: 55.7
+  - name: LEVER58
+    button: {fileID: 592685462}
+    executionTime: 57.7
+  - name: BIG60
+    button: {fileID: 1595503265}
+    executionTime: 59.7
+  - name: BIG64
+    button: {fileID: 1595503265}
+    executionTime: 63.7
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
