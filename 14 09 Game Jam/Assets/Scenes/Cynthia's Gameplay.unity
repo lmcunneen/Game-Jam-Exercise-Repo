@@ -1605,7 +1605,7 @@ MonoBehaviour:
   interactableObject: {fileID: 592685459}
   indicator: {fileID: 1802917072}
   buttonPressAudio: {fileID: 8300000, guid: 4f423f35a89fa734da7bd42544fa5b23, type: 3}
-  indicatorAudio: {fileID: 8300000, guid: 7df0d69c94abfbe438e03290766bbb88, type: 3}
+  indicatorAudio: {fileID: 8300000, guid: ef3383ce4e3c5d640b9f358e2de2514d, type: 3}
   audioSource: {fileID: 2054733164}
   type: 1
 --- !u!1 &713137962
@@ -1862,6 +1862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 772652878}
+  terminalButton: {fileID: 0}
 --- !u!1 &851178767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,8 +3036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 1595503260}
   indicator: {fileID: 1595503260}
-  buttonPressAudio: {fileID: 8300000, guid: ad218850d21864d46b0704e90ff6ae3b, type: 3}
-  indicatorAudio: {fileID: 8300000, guid: 7df0d69c94abfbe438e03290766bbb88, type: 3}
+  buttonPressAudio: {fileID: 8300000, guid: 79d56fbf0e5209740917541ea41cdc2a, type: 3}
+  indicatorAudio: {fileID: 8300000, guid: a6096dc2019515345a0ae41044f48b8d, type: 3}
   audioSource: {fileID: 2054733164}
   type: 0
 --- !u!1 &1618414617
@@ -3194,7 +3195,11 @@ MonoBehaviour:
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
-  offsetIndication: 0
+  life: 3
+  lives:
+  - {fileID: 516597469}
+  - {fileID: 2087385000}
+  - {fileID: 1896860619}
 --- !u!4 &1624940257
 Transform:
   m_ObjectHideFlags: 0
@@ -8401,8 +8406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 1717589329}
   indicator: {fileID: 1274696790}
-  buttonPressAudio: {fileID: 8300000, guid: ad218850d21864d46b0704e90ff6ae3b, type: 3}
-  indicatorAudio: {fileID: 8300000, guid: 7df0d69c94abfbe438e03290766bbb88, type: 3}
+  buttonPressAudio: {fileID: 8300000, guid: acfead497e2c8f546971df0080666395, type: 3}
+  indicatorAudio: {fileID: 8300000, guid: 687e76b11c4f11944b896428855ae2ed, type: 3}
   audioSource: {fileID: 2054733164}
   type: 4
 --- !u!1 &1718767636
