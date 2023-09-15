@@ -13,6 +13,7 @@ public class ButtonHandler : MonoBehaviour
     public AudioClip buttonPressAudio;
     public AudioClip indicatorAudio;
     public AudioSource audioSource;
+    public AudioSource audioSource2;
 
     private Color oldColor;
 
@@ -273,7 +274,7 @@ public class ButtonHandler : MonoBehaviour
 
         if (waitingForInput && type == ButtonType.smallButton)
         {
-            audioSource.PlayOneShot(buttonPressAudio);
+            audioSource2.PlayOneShot(buttonPressAudio);
             map.OnSuccessfulEvent();
             waitingForInput = false;
         }
