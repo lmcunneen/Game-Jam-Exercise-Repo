@@ -67,7 +67,7 @@ public class ButtonHandler : MonoBehaviour
         }
     }
 
-    public void IndicateInput(float timeUntilInput)
+    public void IndicateInput()
     {
         switch (type)
         {

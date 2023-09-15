@@ -11,13 +11,11 @@ public class LevelMap : MonoBehaviour
         public string name;
         public ButtonHandler button;
         public float executionTime;
-        public float indicationTime;
 
-        public ButtonEvent(ButtonHandler button, float executionTime, float indicationTime)
+        public ButtonEvent(ButtonHandler button, float executionTime)
         { 
             this.button = button;
             this.executionTime = executionTime;
-            this.indicationTime = indicationTime;
         }
     }
 
@@ -30,9 +28,9 @@ public class LevelMap : MonoBehaviour
     private void Update()
     {
         timeElapsed += Time.deltaTime;
-        if (buttonEvents[currentEvent].executionTime - buttonEvents[currentEvent].indicationTime <= timeElapsed && !mapFinished)
+        if (buttonEvents[currentEvent].executionTime * 0.42857142857 <= timeElapsed && !mapFinished)
         {
-            buttonEvents[currentEvent].button.IndicateInput(buttonEvents[currentEvent].indicationTime);
+            buttonEvents[currentEvent].button.IndicateInput();
             if (buttonEvents.Count > currentEvent + 1) currentEvent += 1;
             else mapFinished = true;
         }
