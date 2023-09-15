@@ -10,6 +10,9 @@ public class ButtonHandler : MonoBehaviour
 {
     public GameObject interactableObject;
     public GameObject indicator;
+    public AudioClip buttonPressAudio;
+    public AudioClip indicatorAudio;
+    public AudioSource audioSource;
 
     private Color oldColor;
 
@@ -106,6 +109,7 @@ public class ButtonHandler : MonoBehaviour
             }
             else
             {
+                audioSource.PlayOneShot(indicatorAudio);
                 oldColor = indicatorMat.color;
                 indicatorMat.color = Color.red;
                 indicatorOn = true;
@@ -140,7 +144,7 @@ public class ButtonHandler : MonoBehaviour
 
     IEnumerator smallButton()
     {
-
+        audioSource.PlayOneShot(indicatorAudio);
         for (float i = 0; i <= 1.71428571428 / 2; i += Time.deltaTime)
         {
             // set color with i as alpha
@@ -166,6 +170,7 @@ public class ButtonHandler : MonoBehaviour
 
     IEnumerator largeLever()
     {
+        audioSource.PlayOneShot(indicatorAudio);
         Image indicatorMat = indicator.GetComponent<Image>();
         oldColor = indicatorMat.color;
         float alpha = 0.0f;
@@ -217,6 +222,7 @@ public class ButtonHandler : MonoBehaviour
         
         if (waitingForInput && type == ButtonType.bigButton)
         {
+            audioSource.PlayOneShot(buttonPressAudio);
             Image indicatorMat = indicator.GetComponent<Image>();
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
@@ -225,6 +231,7 @@ public class ButtonHandler : MonoBehaviour
 
         if (waitingForInput && type == ButtonType.smallButton)
         {
+            audioSource.PlayOneShot(buttonPressAudio);
             map.OnSuccessfulEvent();
             waitingForInput = false;
         }
@@ -235,6 +242,7 @@ public class ButtonHandler : MonoBehaviour
         Image indicatorMat = indicator.GetComponent<Image>();
         if (sliderUp && sliderVal <= 10 && waitingForInput)
         {
+            audioSource.PlayOneShot(buttonPressAudio);
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
             waitingForInput = false;
@@ -243,6 +251,7 @@ public class ButtonHandler : MonoBehaviour
 
         if (!sliderUp && sliderVal >= 90 && waitingForInput)
         {
+            audioSource.PlayOneShot(buttonPressAudio);
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
             waitingForInput = false;
