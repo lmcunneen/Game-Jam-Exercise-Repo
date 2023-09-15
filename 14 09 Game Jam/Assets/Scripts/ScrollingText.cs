@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScrollingText : MonoBehaviour
 {
@@ -76,8 +77,7 @@ public class ScrollingText : MonoBehaviour
 
         else if (increment > 5)
         {
-            Array.Clear(textArray, 0, textArray.Length - 1);
-            terminalButton.interactable = false;
+            SceneManager.LoadScene("Cynthia's Gameplay");
         }
 
         else
