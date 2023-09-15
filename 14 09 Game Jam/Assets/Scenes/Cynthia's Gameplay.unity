@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.3769989, y: 0}
-  m_SizeDelta: {x: -9.246, y: 0}
+  m_AnchoredPosition: {x: 0.000022888184, y: 0}
+  m_SizeDelta: {x: -0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &109150359
 GameObject:
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   interactableObject: {fileID: 592685459}
   indicator: {fileID: 1802917072}
   buttonPressAudio: {fileID: 8300000, guid: 400491b3afec500448d9da892524b642, type: 3}
-  indicatorAudio: {fileID: 8300000, guid: ef3383ce4e3c5d640b9f358e2de2514d, type: 3}
+  indicatorAudio: {fileID: 8300000, guid: 07491218a6961fa46b71a1bcdcaf130d, type: 3}
   audioSource: {fileID: 2054733164}
   type: 1
 --- !u!1 &713137962
@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3100,6 +3100,8 @@ MonoBehaviour:
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
+  player: {fileID: 2054733164}
+  damagesfx: {fileID: 8300000, guid: d28509ae3f2590e48bc8aedd981d987c, type: 3}
   life: 3
   lives:
   - {fileID: 516597469}
@@ -3320,8 +3322,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_SizeDelta: {x: -0.000076294, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696995314
 MonoBehaviour:
