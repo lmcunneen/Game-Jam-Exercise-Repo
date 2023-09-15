@@ -78,7 +78,7 @@ public class ButtonHandler : MonoBehaviour
                 StartCoroutine(largeLever());
                 break;
             case ButtonType.simonSays:
-                Debug.Log("Simon Says is currently not implemented.");
+                StartCoroutine(bigButton());
                 break;
             case ButtonType.word:
                 Debug.Log("Words are currently not implemented.");
@@ -195,8 +195,12 @@ public class ButtonHandler : MonoBehaviour
 
     public void StopIndicateInput()
     {
-        Image indicatorMat = indicator.GetComponent<Image>();
-        indicatorMat.color = oldColor;
+        if (!(type == ButtonType.smallButton))
+        {
+            Image indicatorMat = indicator.GetComponent<Image>();
+            indicatorMat.color = oldColor;
+
+        }
 
         map.OnFailedEvent();
         waitingForInput = false;
