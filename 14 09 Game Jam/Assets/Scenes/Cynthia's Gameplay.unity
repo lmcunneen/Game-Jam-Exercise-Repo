@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 592685459}
   indicator: {fileID: 1802917072}
-  buttonPressAudio: {fileID: 8300000, guid: 4f423f35a89fa734da7bd42544fa5b23, type: 3}
+  buttonPressAudio: {fileID: 8300000, guid: 400491b3afec500448d9da892524b642, type: 3}
   indicatorAudio: {fileID: 8300000, guid: ef3383ce4e3c5d640b9f358e2de2514d, type: 3}
   audioSource: {fileID: 2054733164}
   type: 1
@@ -1768,101 +1768,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730701973}
   m_CullTransparentMesh: 1
---- !u!1 &772652876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 772652877}
-  - component: {fileID: 772652879}
-  - component: {fileID: 772652878}
-  - component: {fileID: 772652880}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &772652877
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772652876}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1749170961}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.2906189, y: 0.29060364}
-  m_SizeDelta: {x: -7.5558, y: -6.3934}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &772652878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772652876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &772652879
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772652876}
-  m_CullTransparentMesh: 1
---- !u!114 &772652880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772652876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 519351537969dbb408d485c6b2c25725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 772652878}
-  terminalButton: {fileID: 0}
 --- !u!1 &851178767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,46 +3057,46 @@ MonoBehaviour:
   buttonEvents:
   - name: BIG8
     button: {fileID: 1595503265}
-    executionTime: 7.7
+    executionTime: 8
   - name: BIG16
     button: {fileID: 1595503265}
-    executionTime: 15.7
+    executionTime: 16
   - name: BIG20
     button: {fileID: 1595503265}
-    executionTime: 19.7
+    executionTime: 20
   - name: BIG24
     button: {fileID: 1595503265}
-    executionTime: 23.7
+    executionTime: 24
   - name: LEVER28
     button: {fileID: 592685462}
-    executionTime: 27.7
+    executionTime: 28
   - name: BIG36
     button: {fileID: 1595503265}
-    executionTime: 35.7
-  - name: LEVER36
+    executionTime: 36
+  - name: LEVER40
     button: {fileID: 592685462}
-    executionTime: 39.7
+    executionTime: 40
   - name: SLIDER44
     button: {fileID: 1717589334}
-    executionTime: 43.7
+    executionTime: 44
   - name: SLIDER48
     button: {fileID: 1717589334}
-    executionTime: 47.7
+    executionTime: 48
   - name: LEVER52
     button: {fileID: 592685462}
-    executionTime: 51.7
+    executionTime: 52
   - name: BIG56
     button: {fileID: 1595503265}
-    executionTime: 55.7
+    executionTime: 56
   - name: LEVER58
     button: {fileID: 592685462}
-    executionTime: 57.7
+    executionTime: 58
   - name: BIG60
     button: {fileID: 1595503265}
-    executionTime: 59.7
-  - name: BIG64
-    button: {fileID: 1595503265}
-    executionTime: 63.7
+    executionTime: 60
+  - name: SLIDER64
+    button: {fileID: 1717589334}
+    executionTime: 64
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
@@ -8517,8 +8422,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 772652877}
+  m_Children: []
   m_Father: {fileID: 1718767637}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
