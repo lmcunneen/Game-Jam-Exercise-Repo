@@ -24,6 +24,8 @@ public class LevelMap : MonoBehaviour
     public float timeElapsed;
     public int currentEvent = 0;
     public bool mapFinished = false;
+    public AudioSource player;
+    public AudioClip damagesfx;
 
     public int life = 3;
     public GameObject[] lives;
@@ -44,7 +46,7 @@ public class LevelMap : MonoBehaviour
         lives[life - 1].gameObject.SetActive(false);
         life--;
         Debug.Log("YOU FUCKED UP DAWG! You have this much life left: " + life);
-
+        player.PlayOneShot(damagesfx);
 
         if (life == 0)
         {
