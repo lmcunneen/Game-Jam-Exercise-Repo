@@ -81,7 +81,7 @@ public class ButtonHandler : MonoBehaviour
                 StartCoroutine(largeLever());
                 break;
             case ButtonType.simonSays:
-                StartCoroutine(bigButton());
+                StartCoroutine(simonSays());
                 break;
             case ButtonType.word:
                 Debug.Log("Words are currently not implemented.");
@@ -186,6 +186,53 @@ public class ButtonHandler : MonoBehaviour
 
         float buttonPressTime = 0.0f;
         while (buttonPressTime < 0.4 / 2)
+        {
+            buttonPressTime += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        Debug.Log("Input Window over...");
+        if (waitingForInput)
+        {
+            StopIndicateInput();
+        }
+        yield break;
+    }
+
+    IEnumerator simonSays()
+    {
+        int flashCount = 0;
+        bool indicatorOn = false;
+        Image indicatorMat = indicator.GetComponent<Image>();
+        while (flashCount < 2)
+        {
+            if (indicatorOn)
+            {
+                indicatorMat.color = oldColor;
+                indicatorOn = false;
+            }
+            else
+            {
+                audioSource.PlayOneShot(indicatorAudio);
+                oldColor = indicatorMat.color;
+                indicatorMat.color = Color.red;
+                indicatorOn = true;
+            }
+            flashCount++;
+            yield return new WaitForSeconds(0.42857142857f / 2);
+        }
+
+
+        float waitTime = 0.0f;
+        while (waitTime < 1.28571428571 + 0.12857142857f / 2)
+        {
+            waitTime += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        Debug.Log("WaitingForInput...");
+        waitingForInput = true;
+
+        float buttonPressTime = 0.0f;
+        while (buttonPressTime < 0.6 / 2)
         {
             buttonPressTime += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
