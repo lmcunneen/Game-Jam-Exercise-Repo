@@ -48,7 +48,7 @@ public class LevelMap : MonoBehaviour
 
         if (life == 0)
         {
-            SceneManager.LoadScene("Death");
+            SceneManager.LoadScene("Death Screen");
         }
     }
 
