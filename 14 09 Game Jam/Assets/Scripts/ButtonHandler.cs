@@ -12,10 +12,6 @@ public class ButtonHandler : MonoBehaviour
     public GameObject indicator;
 
     private Color oldColor;
-    private float timer = 0;
-    private float timerComp;
-    private float offsetTimer = 0;
-    private float offsetComp;
 
     private Button trackedButton;
     private Slider trackedSlider;
@@ -23,15 +19,14 @@ public class ButtonHandler : MonoBehaviour
     private LevelMap map;
     private bool waitingForInput;
     private bool sliderUp;
-    private bool offsetIndicator = false;
 
     public enum ButtonType
     {
-        button,
-        slider,
+        bigButton,
+        lever,
         simonSays,
         word,
-        greenButton
+        smallButton
     }
 
     public ButtonType type;
@@ -41,10 +36,10 @@ public class ButtonHandler : MonoBehaviour
         map = FindObjectOfType<LevelMap>();
         switch (type)
         {
-            case ButtonType.button:
+            case ButtonType.bigButton:
                 trackedButton = interactableObject.GetComponent<Button>();
                 break;
-            case ButtonType.slider:
+            case ButtonType.lever:
                 trackedSlider = interactableObject.GetComponent<Slider>();
                 break;
             case ButtonType.simonSays:
@@ -53,7 +48,7 @@ public class ButtonHandler : MonoBehaviour
             case ButtonType.word:
                 Debug.Log("Words are currently not implemented correctly.");
                 break;
-            case ButtonType.greenButton:
+            case ButtonType.smallButton:
                 trackedButton = interactableObject.GetComponent<Button>();
                 indicationSlider = indicator.GetComponent<Slider>();
                 break;
@@ -72,97 +67,156 @@ public class ButtonHandler : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void IndicateInput(float timeUntilInput)
     {
-        timer += Time.deltaTime;
-        offsetTimer += Time.deltaTime;
-
-        if (type == ButtonType.greenButton)
+        switch (type)
         {
-            if (offsetComp == 0) indicationSlider.value = 0;
-            else indicationSlider.value = offsetTimer / offsetComp;
+            case ButtonType.bigButton:
+                StartCoroutine(bigButton());
+                break;
+            case ButtonType.lever:
+                StartCoroutine(largeLever());
+                break;
+            case ButtonType.simonSays:
+                Debug.Log("Simon Says is currently not implemented.");
+                break;
+            case ButtonType.word:
+                Debug.Log("Words are currently not implemented.");
+                break;
+            case ButtonType.smallButton:
+                StartCoroutine(smallButton());
+                break;
+            default:
+                Debug.LogError("THE BUTTON FUCKING BROKEN");
+                break;
         }
+    }
 
-        if (timer >= timerComp && offsetIndicator)
+    IEnumerator bigButton()
+    {
+        int flashCount = 0;
+        bool indicatorOn = false;
+        Image indicatorMat = indicator.GetComponent<Image>();
+        while (flashCount < 6)
         {
-            StopIndicateInputNoFail();
+            if (indicatorOn)
+            {
+                indicatorMat.color = oldColor;
+                indicatorOn = false;
+            }
+            else
+            {
+                oldColor = indicatorMat.color;
+                indicatorMat.color = Color.red;
+                indicatorOn = true;
+            }
+            flashCount++;
+            yield return new WaitForSeconds(0.42857142857f);
         }
-        if (offsetTimer >= offsetComp && !waitingForInput && offsetIndicator)
-        {
-            EnableInputWait();
-        }
+        
 
-        if (timer >= timerComp && waitingForInput && !offsetIndicator)
+        float waitTime = 0.0f;
+        while (waitTime < 0.12857142857f)
+        {
+            waitTime += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        Debug.Log("WaitingForInput...");
+        waitingForInput = true;
+
+        float buttonPressTime = 0.0f;
+        while (buttonPressTime < 0.6)
+        {
+            buttonPressTime += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        Debug.Log("Input Window over...");
+        if (waitingForInput)
         {
             StopIndicateInput();
         }
-
+        yield break;
     }
 
-    public void IndicateInput(float timeUntilInput, float timeOffset, bool offsetIndication = false)
+    IEnumerator smallButton()
     {
-        timer = 0.0f;
-        offsetTimer = 0.0f - timeUntilInput;
 
-        if (!(type == ButtonType.greenButton))
+        for (float i = 0; i <= 1.71428571428; i += Time.deltaTime)
         {
-            Image indicatorMat = indicator.GetComponent<Image>();
-            oldColor = indicatorMat.color;
-            indicatorMat.color = Color.red;
+            // set color with i as alpha
+            indicationSlider.value = i / 1.71428571428f;
+            yield return null;
         }
-        
-        timerComp = timeUntilInput;
-        offsetComp = timeOffset;
-        offsetIndicator = offsetIndication;
+        Debug.Log("WaitingForInput...");
+        waitingForInput = true;
 
-        if (!offsetIndication)
+        float buttonPressTime = 0.0f;
+        while (buttonPressTime < 0.4)
         {
-            waitingForInput = true;
+            buttonPressTime += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
+        Debug.Log("Input Window over...");
+        if (waitingForInput)
+        {
+            StopIndicateInput();
+        }
+        yield break;
     }
 
-    public void StopIndicateInputNoFail()
+    IEnumerator largeLever()
     {
-        if (!(type == ButtonType.greenButton))
+        Image indicatorMat = indicator.GetComponent<Image>();
+        oldColor = indicatorMat.color;
+        float alpha = 0.0f;
+        while (alpha <= 1)
         {
-            Image indicatorMat = indicator.GetComponent<Image>();
-            indicatorMat.color = oldColor;
+            indicatorMat.color = new Color(1, 1, 1, alpha);
+            alpha += 0.1f;
+            yield return new WaitForSeconds(0.42857142857f / 5);
         }
+        indicatorMat.color = oldColor;
+        Debug.Log("Waiting for input...");
+        waitingForInput = true;
+
+        float buttonPressTime = 0.0f;
+        while (buttonPressTime < 0.4)
+        {
+            buttonPressTime += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        Debug.Log("Input Window over...");
+        if (waitingForInput)
+        {
+            StopIndicateInput();
+        }
+        yield break;
     }
 
     public void StopIndicateInput()
     {
-        if (!(type == ButtonType.greenButton))
-        {
-            Image indicatorMat = indicator.GetComponent<Image>();
-            indicatorMat.color = oldColor;
-        }
+        Image indicatorMat = indicator.GetComponent<Image>();
+        indicatorMat.color = oldColor;
 
         map.OnFailedEvent();
         waitingForInput = false;
     }
 
-    public void EnableInputWait()
-    {
-        timer = 0.0f;
-        waitingForInput = true;
-        offsetIndicator = false;
-    }
-
     public void OnInteractableClick()
     {
-        Image indicatorMat = indicator.GetComponent<Image>();
-        if (0 < timer && timer < timerComp && waitingForInput && !(type == ButtonType.greenButton))
+        
+        if (waitingForInput && type == ButtonType.bigButton)
         {
+            Image indicatorMat = indicator.GetComponent<Image>();
             map.OnSuccessfulEvent();
             indicatorMat.color = oldColor;
+            waitingForInput = false;
         }
-        waitingForInput = false;
 
-        if (type == ButtonType.greenButton)
+        if (waitingForInput && type == ButtonType.smallButton)
         {
-            offsetComp = 0;
-            indicationSlider.value = 0;
+            map.OnSuccessfulEvent();
+            waitingForInput = false;
         }
     }
 

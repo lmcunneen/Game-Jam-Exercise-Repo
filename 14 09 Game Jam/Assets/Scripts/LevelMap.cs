@@ -12,7 +12,6 @@ public class LevelMap : MonoBehaviour
         public ButtonHandler button;
         public float executionTime;
         public float indicationTime;
-        public float indicationOffset;
 
         public ButtonEvent(ButtonHandler button, float executionTime, float indicationTime)
         { 
@@ -33,10 +32,7 @@ public class LevelMap : MonoBehaviour
         timeElapsed += Time.deltaTime;
         if (buttonEvents[currentEvent].executionTime - buttonEvents[currentEvent].indicationTime <= timeElapsed && !mapFinished)
         {
-            if (buttonEvents[currentEvent].indicationOffset != 0) offsetIndication = true;
-            else offsetIndication = false;
-
-            buttonEvents[currentEvent].button.IndicateInput(buttonEvents[currentEvent].indicationTime, buttonEvents[currentEvent].indicationOffset, offsetIndication);
+            buttonEvents[currentEvent].button.IndicateInput(buttonEvents[currentEvent].indicationTime);
             if (buttonEvents.Count > currentEvent + 1) currentEvent += 1;
             else mapFinished = true;
         }
