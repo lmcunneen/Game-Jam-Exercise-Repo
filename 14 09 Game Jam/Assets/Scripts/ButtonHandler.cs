@@ -36,6 +36,8 @@ public class ButtonHandler : MonoBehaviour
 
     private void Start()
     {
+        audioSource.time = 0.025f;
+
         map = FindObjectOfType<LevelMap>();
         switch (type)
         {
