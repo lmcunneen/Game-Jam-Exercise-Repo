@@ -111,12 +111,12 @@ public class ButtonHandler : MonoBehaviour
                 indicatorOn = true;
             }
             flashCount++;
-            yield return new WaitForSeconds(0.42857142857f);
+            yield return new WaitForSeconds(0.42857142857f / 2);
         }
         
 
         float waitTime = 0.0f;
-        while (waitTime < 0.12857142857f)
+        while (waitTime < 0.12857142857f / 2)
         {
             waitTime += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
@@ -125,7 +125,7 @@ public class ButtonHandler : MonoBehaviour
         waitingForInput = true;
 
         float buttonPressTime = 0.0f;
-        while (buttonPressTime < 0.6)
+        while (buttonPressTime < 0.6 / 2)
         {
             buttonPressTime += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
@@ -141,17 +141,17 @@ public class ButtonHandler : MonoBehaviour
     IEnumerator smallButton()
     {
 
-        for (float i = 0; i <= 1.71428571428; i += Time.deltaTime)
+        for (float i = 0; i <= 1.71428571428 / 2; i += Time.deltaTime)
         {
             // set color with i as alpha
-            indicationSlider.value = i / 1.71428571428f;
+            indicationSlider.value = i / (1.71428571428f / 2);
             yield return null;
         }
         Debug.Log("WaitingForInput...");
         waitingForInput = true;
 
         float buttonPressTime = 0.0f;
-        while (buttonPressTime < 0.4)
+        while (buttonPressTime < 0.4 / 2)
         {
             buttonPressTime += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
@@ -173,14 +173,14 @@ public class ButtonHandler : MonoBehaviour
         {
             indicatorMat.color = new Color(1, 1, 1, alpha);
             alpha += 0.1f;
-            yield return new WaitForSeconds(0.42857142857f / 5);
+            yield return new WaitForSeconds(0.42857142857f / 10);
         }
         indicatorMat.color = oldColor;
         Debug.Log("Waiting for input...");
         waitingForInput = true;
 
         float buttonPressTime = 0.0f;
-        while (buttonPressTime < 0.4)
+        while (buttonPressTime < 0.4 / 2)
         {
             buttonPressTime += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
@@ -191,6 +191,12 @@ public class ButtonHandler : MonoBehaviour
             StopIndicateInput();
         }
         yield break;
+    }
+
+    IEnumerator words()
+    {
+
+        yield return null;
     }
 
     public void StopIndicateInput()

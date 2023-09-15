@@ -244,11 +244,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonEvents:
-  - name: test
+  - name: 'Lever '
     button: {fileID: 1787494763}
     executionTime: 5
-    indicationTime: 2
-    indicationOffset: 0
+  - name: Big Button
+    button: {fileID: 1886496389}
+    executionTime: 10
+  - name: Small Button
+    button: {fileID: 392992374}
+    executionTime: 15
+  - name: Small Button
+    button: {fileID: 392992374}
+    executionTime: 20
   timeElapsed: 0
   currentEvent: 0
   mapFinished: 0
