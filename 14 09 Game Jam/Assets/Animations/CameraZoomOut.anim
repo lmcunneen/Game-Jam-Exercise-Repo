@@ -21,22 +21,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 3.5
+        time: 5.883333
         value: 5
-        inSlope: 38.59001
-        outSlope: 38.59001
+        inSlope: 15.62231
+        outSlope: 15.62231
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.11538451
+        outWeight: 0.11956448
       - serializedVersion: 3
-        time: 7
+        time: 14
         value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: -0.43854988
+        outSlope: -0.43854988
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
+        inWeight: 0.1248527
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -66,7 +66,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 7
+    m_StopTime: 14
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -86,22 +86,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 3.5
+        time: 5.883333
         value: 5
-        inSlope: 38.59001
-        outSlope: 38.59001
+        inSlope: 15.62231
+        outSlope: 15.62231
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.11538451
+        outWeight: 0.11956448
       - serializedVersion: 3
-        time: 7
+        time: 14
         value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: -0.43854988
+        outSlope: -0.43854988
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
+        inWeight: 0.1248527
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -113,4 +113,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: 
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 13.916667
+    functionName: OpenDeathMenu
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
